@@ -35,7 +35,7 @@ app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Register webhook routes
-app.use('/api', webhookRoutes);
+app.use('/api/webhooks', webhookRoutes);
 
 // Health check
 app.get('/', (req, res) => {
