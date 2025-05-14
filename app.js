@@ -41,6 +41,10 @@ app.use('/api/webhooks', webhookRoutes);
 app.get('/', (req, res) => {
   res.status(200).json({ message: 'Healthy', status: 'OK' });
 });
+app.get('/ts', (req, res) => {
+  res.status(200).json({ message: 'Healthy', status: 'OK' });
+});
+
 
 // 404 handler
 app.use((req, res, next) => {
