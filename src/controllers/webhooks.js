@@ -11,13 +11,14 @@ const clerkWebhooks = catchAsync(async (req, res) => {
   try {
     // Verify the incoming webhook signature using raw body
     const webhook = new Webhook(process.env.CLERK_WEBHOOK_SECRET);
-    const payload = webhook.verify(JSON.stringify(req.body), {
+    await  webhook.verify(JSON.stringify(req.body), {
       'svix-id': req.headers['svix-id'],
       'svix-timestamp': req.headers['svix-timestamp'],
       'svix-signature': req.headers['svix-signature'],
     });
 
-    const { data, type } = payload;
+    const { data, type } = req.body;
+    console.log('Webhook data:', data);
 
     switch (type) {
       case 'user.created': {
