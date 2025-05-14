@@ -17,7 +17,7 @@ const clerkWebhooks = catchAsync(async (req, res) => {
       'svix-signature': req.headers['svix-signature'],
     });
 
-    const { data, type } = req.body;
+    const { data, type } = payload;
 
     switch (type) {
       case 'user.created': {
